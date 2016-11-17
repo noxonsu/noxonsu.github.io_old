@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+	<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,6 +86,97 @@
 
 		
     </section><!--pageheader-->
+	
+	<section id="metrics" class="nopaddingbottom metrics">
+        <div class="container-fluid">
+            <div class="section__content">
+                <div class="incontainer">
+                    <h2 onclick='$(".metrics__content").toggle()'>Price: <span class='green'><span class='etc_price_usd'>??</span>$/ETC</span>, Show metrics <img style='filter: invert(100%);' src='http://www.icon2s.com/img64/64x64-expand-arrow22.png'></h2>
+                    <div class="metrics__content" style='padding-bottom: 60px;display:none'>
+                        <div class="metrics__top-list clearfix">
+                            <div class="cell-1">
+                                <!-- <p>Show</p>
+								 <ul class="nav nav-pills">
+									 <li role="presentation" class="active"><a class="metrics-pill" href="#usd-panel" aria-controls="usd-panel" role="tab" data-toggle="tab">Usd</a></li>
+									 <li role="presentation"><a class="metrics-pill" href="#btc-panel" aria-controls="btc-panel" role="tab" data-toggle="tab">Btc</a></li>
+								 </ul>-->
+                            </div>
+                            <p class="cell-2">market cap</p>
+                            <p class="cell-3">price</p>
+                        
+                            <p class="cell-5">avaliable supply</p>
+                            <p class="cell-6">24h volume</p>
+                            <p class="cell-7">%24</p>
+                        </div>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="usd-panel">
+                                <div class="metrics__list clearfix">
+                                    <p class="green cell-1">etc/usd</p>
+                                    <p class="cell-2" id='etc_market_cap_usd'>???</p>
+                                    <p class="cell-3 etc_price_usd">??</p>
+                                   
+                                    <p class="cell-5" id='etc_available_supply'>???</p>
+                                    <p class="cell-6" id='etc_24h_volume_usd'>???</p>
+                                    <p class="cell-7" id='etc_percent_change_24h'>???</p>
+                                </div>
+                                <div class="metrics__list clearfix">
+                                    <p class="grey cell-1">eth/usd</p>
+                                    <p class="cell-2" id='eth_market_cap_usd'>???</p>
+                                    <p class="cell-3" id='eth_price_usd'>????</p>
+                                
+                                    <p class="cell-5" id='eth_available_supply'>????</p>
+                                    <p class="cell-6" id='eth_24h_volume_usd'>???</p>
+                                    <p class="grey cell-7" id='eth_percent_change_24h'>0.10%</p>
+                                </div>
+                                <div class="metrics__graph-block">
+                                    <div class="metrics__legend clearfix">
+                                        <p><span class="metrics-price-icon"></span> market price</p>
+                                        <p><span class="metrics-volume-icon"></span> trade volume</p>
+                                    </div>
+
+                                    <div class="metrics__graph">
+                                        <div class="chart2"></div>
+                                    </div>
+                                </div>
+                            </div><!-- 
+                            <div role="tabpanel" class="tab-pane" id="btc-panel">
+                                <div class="metrics__list clearfix">
+                                    <p class="green cell-1">etc/usd</p>
+                                    <p class="cell-2" id='etcmarket_cap_usd'>$141 004 111</p>
+                                    <p class="cell-3">$1.555555</p>
+                                    <p class="cell-4">$1.66666</p>
+                                    <p class="cell-5">33333333</p>
+                                    <p class="cell-6">$40 844 900</p>
+                                    <p class="cell-7">11.54%</p>
+                                </div>
+                                <div class="metrics__list clearfix">
+                                    <p class="grey cell-1">eth/usd</p>
+                                    <p class="cell-2">$1 111 111 628</p>
+                                    <p class="cell-3">$12.69277501</p>
+                                    <p class="cell-4">$12.7865</p>
+                                    <p class="cell-5">82 459 874</p>
+                                    <p class="cell-6">$17 293 800</p>
+                                    <p class="grey cell-7">0.10%</p>
+                                </div>
+                                <div class="metrics__graph-block">
+                                    <div class="metrics__legend clearfix">
+                                        <p><span class="metrics-price-icon"></span> market price</p>
+                                        <p><span class="metrics-volume-icon"></span> trade volume</p>
+                                    </div>
+                                    <div class="metrics__graph">
+                                        <div class="chart2"></div>
+                                    </div>
+                                </div>
+                            </div>
+							-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section><!--metrics-->
+   
+   
     <section id="about" class="about">
         <div class="container-fluid">
             <div class="section__content">
@@ -313,95 +404,7 @@ Transactions are final; applications are unstoppable.</span>
 
         </div><!-- /.container-fluid -->
     </section><!--about-->
-	<section id="metrics" class="metrics">
-        <div class="container-fluid">
-            <div class="section__content">
-                <div class="incontainer">
-                    <h2 onclick='$(".metrics__content").toggle()'>Metrics </h2>
-                    <div class="metrics__content" style='padding-bottom: 60px;display:none'>
-                        <div class="metrics__top-list clearfix">
-                            <div class="cell-1">
-                                <!-- <p>Show</p>
-								 <ul class="nav nav-pills">
-									 <li role="presentation" class="active"><a class="metrics-pill" href="#usd-panel" aria-controls="usd-panel" role="tab" data-toggle="tab">Usd</a></li>
-									 <li role="presentation"><a class="metrics-pill" href="#btc-panel" aria-controls="btc-panel" role="tab" data-toggle="tab">Btc</a></li>
-								 </ul>-->
-                            </div>
-                            <p class="cell-2">market cap</p>
-                            <p class="cell-3">price</p>
-                        
-                            <p class="cell-5">avaliable supply</p>
-                            <p class="cell-6">24h volume</p>
-                            <p class="cell-7">%24</p>
-                        </div>
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="usd-panel">
-                                <div class="metrics__list clearfix">
-                                    <p class="green cell-1">etc/usd</p>
-                                    <p class="cell-2" id='etc_market_cap_usd'>???</p>
-                                    <p class="cell-3" id='etc_price_usd'>??</p>
-                                   
-                                    <p class="cell-5" id='etc_available_supply'>???</p>
-                                    <p class="cell-6" id='etc_24h_volume_usd'>???</p>
-                                    <p class="cell-7" id='etc_percent_change_24h'>???</p>
-                                </div>
-                                <div class="metrics__list clearfix">
-                                    <p class="grey cell-1">eth/usd</p>
-                                    <p class="cell-2" id='eth_market_cap_usd'>???</p>
-                                    <p class="cell-3" id='eth_price_usd'>????</p>
-                                
-                                    <p class="cell-5" id='eth_available_supply'>????</p>
-                                    <p class="cell-6" id='eth_24h_volume_usd'>???</p>
-                                    <p class="grey cell-7" id='eth_percent_change_24h'>0.10%</p>
-                                </div>
-                                <div class="metrics__graph-block">
-                                    <div class="metrics__legend clearfix">
-                                        <p><span class="metrics-price-icon"></span> market price</p>
-                                        <p><span class="metrics-volume-icon"></span> trade volume</p>
-                                    </div>
-
-                                    <div class="metrics__graph">
-                                        <div class="chart2"></div>
-                                    </div>
-                                </div>
-                            </div><!-- 
-                            <div role="tabpanel" class="tab-pane" id="btc-panel">
-                                <div class="metrics__list clearfix">
-                                    <p class="green cell-1">etc/usd</p>
-                                    <p class="cell-2" id='etcmarket_cap_usd'>$141 004 111</p>
-                                    <p class="cell-3">$1.555555</p>
-                                    <p class="cell-4">$1.66666</p>
-                                    <p class="cell-5">33333333</p>
-                                    <p class="cell-6">$40 844 900</p>
-                                    <p class="cell-7">11.54%</p>
-                                </div>
-                                <div class="metrics__list clearfix">
-                                    <p class="grey cell-1">eth/usd</p>
-                                    <p class="cell-2">$1 111 111 628</p>
-                                    <p class="cell-3">$12.69277501</p>
-                                    <p class="cell-4">$12.7865</p>
-                                    <p class="cell-5">82 459 874</p>
-                                    <p class="cell-6">$17 293 800</p>
-                                    <p class="grey cell-7">0.10%</p>
-                                </div>
-                                <div class="metrics__graph-block">
-                                    <div class="metrics__legend clearfix">
-                                        <p><span class="metrics-price-icon"></span> market price</p>
-                                        <p><span class="metrics-volume-icon"></span> trade volume</p>
-                                    </div>
-                                    <div class="metrics__graph">
-                                        <div class="chart2"></div>
-                                    </div>
-                                </div>
-                            </div>
-							-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section><!--metrics-->
-    <section class="features">
+	 <section class="features">
         <div class="container-fluid">
             <div class="section__content">
                 <div class="incontainer">
@@ -1954,10 +1957,10 @@ particlesJS.load('particles-js2', 'js/particles.json', function() {
 		$.getJSON("https://api.coinmarketcap.com/v1/ticker/ethereum-classic/",function(d){
 		
 			$("#etc_market_cap_usd").html(d[0].market_cap_usd);
-			$("#etc_price_usd").html(d[0].price_usd);
+			$(".etc_price_usd").html(Math.round(d[0].price_usd*10)/10);
 			$("#etc_24h_volume_usd").html(d[0]['24h_volume_usd']);
 			$("#etc_market_cap_usd").html(d[0].market_cap_usd);
-			$("#etc_price_usd").html(d[0].price_usd);
+			
 			$("#etc_available_supply").html(d[0].available_supply);
 			$("#etc_percent_change_24h").html(d[0].percent_change_24h);
 			
