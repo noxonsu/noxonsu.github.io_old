@@ -4334,4 +4334,7 @@ form#donateform textarea {
   .pageheader__footer .status {
     display: none;
   }
+  .support__right span {
+    word-wrap: break-word;
+  }
 }
