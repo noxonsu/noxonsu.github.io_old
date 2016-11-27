@@ -150,20 +150,20 @@
 
 <script>
 
-        function call(){
-            msg = $('#donateform').serialize();
-            $.ajax({
-                type: 'POST',
-                url: 'http://ethereumclassic.com/modules/donate.php',
-                data: msg,
-                success: function(data) {
-                    alert(data); 
-                },
-                error:  function(xhr, str){
-                    alert('Возникла ошибка: ' + xhr.responseCode);
-                }
-            });
+function call(){
+    msg = $('#donateform').serialize();
+    $.ajax({
+        type: 'POST',
+        url: 'https://ethereumclassic.com/donate/donate.php',
+        data: msg,
+        success: function(data) {
+            alert(data); 
+        },
+        error:  function(xhr, str){
+            alert('Возникла ошибка: ' + xhr.responseCode);
         }
+    });
+}
 
 </script>
 
