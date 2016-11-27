@@ -139,7 +139,8 @@
             <div class="section__content">
                 <div class="incontainer">
                     <h2 onclick='$(".metrics__content").show();'>
-						<span class='etc_price_usd'>??</span>$/ETC <span class='etc_percent_change_24h'></span>, <span class='etc_market_cap_usd'></span> cap
+						Quotes: <span class='etc_price_usd'>??</span>$, 
+					<span class='etc_price_btc'>??</span> BTC <span class='etc_percent_change_24h'></span>
 						
 					<img style='filter: invert(100%);' id='tohide' src='http://www.icon2s.com/img64/64x64-expand-arrow22.png'>
 					</h2>
@@ -2292,28 +2293,33 @@ particlesJS.load('particles-js2', 'js/particles.json', function() {
 			$(".etc_market_cap_usd").html(Number(cap).toLocaleString());
 			$(".etc_market_cap_usd").html(Number(cap).toLocaleString());
 			$(".etc_price_usd").html(Math.round(d[0].price_usd*10)/10);
-			$("#etc_24h_volume_usd").html(d[0]['24h_volume_usd']);
-			$("#etc_market_cap_usd").html(d[0].market_cap_usd);
+			$(".etc_price_btc").html(d[0].price_btc);
+			$("#etc_24h_volume_usd").html(nor(d[0]['24h_volume_usd']));
+			$("#etc_market_cap_usd").html(nor(d[0].market_cap_usd));
 			
-			$("#etc_available_supply").html(d[0].available_supply);
+
+			$("#etc_available_supply").html(nor(d[0].available_supply));
 			
 			var ch = d[0].percent_change_24h;
 			if (ch>0) ch = '<font class=green>' + ch + '%</font>';
 			if (ch<0) ch = '<font class=red>' + ch + '%</font>';
 			$(".etc_percent_change_24h").html(ch);
 			
+
 		});
 		$.getJSON("https://api.coinmarketcap.com/v1/ticker/ethereum/",function(d){
-			$("#eth_market_cap_usd").html(d[0].market_cap_usd);
+			$("#eth_market_cap_usd").html(nor(d[0].market_cap_usd));
 			$("#eth_price_usd").html(d[0].price_usd);
-			$("#eth_24h_volume_usd").html(d[0]['24h_volume_usd']);
-			$("#eth_market_cap_usd").html(d[0].market_cap_usd);
+			$("#eth_24h_volume_usd").html(nor(d[0]['24h_volume_usd']));
+			
 			$("#eth_price_usd").html(d[0].price_usd);
-			$("#eth_available_supply").html(d[0].available_supply);
+			$("#eth_available_supply").html(nor(d[0].available_supply));
 			$("#eth_percent_change_24h").html(d[0].percent_change_24h);
 		});
 		
-
+		function nor(v) {
+		return Number(v).toLocaleString()
+		}
 	
 	</script>
 	<script src="js/app.js"></script>
