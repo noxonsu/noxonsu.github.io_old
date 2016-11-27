@@ -4319,4 +4319,19 @@ form#donateform textarea {
   .t397__col.t-width.t-width_12 {
     overflow-x: auto;
   }
+
+  .btn.create-wallet-btn, .btn.start-using-btn {
+      position: relative;
+      height: 33px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-top-width: 1px;
+      border-bottom-width: 1px;
+      margin-bottom: 10px;
+  }
+
+  .pageheader__footer .status {
+    display: none;
+  }
 }
