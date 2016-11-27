@@ -4187,3 +4187,51 @@ border: 8px solid rgb(247, 247, 247);
   font-weight: 600;
   line-height: 42px
 }
+
+#donateform {
+  width: 370px;
+  margin: 0px auto;
+}
+
+form#donateform input[type="text"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 22px;
+  outline: none;
+  line-height: 32px;
+  padding: 0px 11px;
+  border: 1px solid #ddd;
+  color: #2c3e50;
+}
+
+form#donateform input[type="submit"] {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #27ae60;
+    color: #289e5a;
+    text-transform: uppercase;
+    padding: 12px;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+      border-radius: 4px;
+  outline: none;
+}
+
+form#donateform input[type="submit"]:hover {
+  color:#fff;
+  background: #289e5a;
+      box-shadow: 0px 3px 10px -4px rgba(0, 0, 0, 0.4);
+}
+
+form#donateform textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 22px;
+    outline: none;
+    line-height: 21px;
+    padding: 8px 11px;
+    border: 1px solid #ddd;
+    resize: vertical;
+    color: #2c3e50;
+    min-height: 170px;
+}
