@@ -2248,7 +2248,7 @@ particlesJS.load('particles-js2', 'js/particles.json', function() {
 	<script>
 	
 	
-	$.getJSON('https://gastracker.io/api/status',function(d){
+	$.getJSON('https://api.gastracker.io/status',function(d){
 		console.log(d);
 		$("#Height").html(d.block.height);
 		$("#avgblock").html(d.AvgBlockTime);
@@ -2256,7 +2256,6 @@ particlesJS.load('particles-js2', 'js/particles.json', function() {
 		$("#lastblocksec").html(d.block.miningTime+"s ago");
 		$("#Hashrate").html(d.hashrateStr);
 		$("#uncles").html(d.uncles.currentBlock+"/"+d.uncles.last50);
-		
 		
 	});
 	
