@@ -959,7 +959,7 @@ footer {
     position: relative;
     width: 100%;
     max-width: 1180px;
-    height: 652px;
+    height: 782px;
     padding: 40px 720px 40px 50px;
     margin-bottom: 100px;
     margin-top: 60px;
@@ -973,6 +973,7 @@ footer {
   width: 725px;
   height: 375px;
   right: -177px;
+  top: 170px; 
   bottom: -68px;
   background: url("../img/broshure.png") no-repeat;
   background-size: contain; }
@@ -4030,6 +4031,11 @@ border: 8px solid rgb(247, 247, 247);
   padding: 30px;
   display: block;
   position: relative;
+  text-align: left
+}
+
+.t279__textwrapper * {
+  text-align: left !important
 }
 .t279__textwrapper-featured {
   background: transparent !important;
@@ -4050,6 +4056,8 @@ border: 8px solid rgb(247, 247, 247);
 .t279__title {
   color: #222;
   margin-bottom: 10px;
+      font-size: 18px;
+    font-weight: 500;
 }
 .t279__uptitle {
   margin-bottom: 8px;
