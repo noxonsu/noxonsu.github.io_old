@@ -6,7 +6,8 @@
 	
 		$('.chart2').highcharts({
 			chart: {
-				type: 'spline'
+				type: 'spline',
+				width: 1000
 			},
 			title: {
 				text: false,
