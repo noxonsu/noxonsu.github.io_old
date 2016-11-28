@@ -1163,8 +1163,9 @@ position: relative;
     font-size: 23px; }
 
 .miners-left h3 {
-  margin-bottom: 40px;
-  font-size: 27px; }
+ line-height: 33px;
+    margin-bottom: 20px;
+    font-size: 24px; }
 .miners-left li {
   margin-bottom: 17px;
   font-weight: 900;
