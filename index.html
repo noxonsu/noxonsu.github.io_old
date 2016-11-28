@@ -138,11 +138,11 @@
         <div class="container-fluid">
             <div class="section__content">
                 <div class="incontainer">
-                    <h2 onclick='$(".metrics__content").show();'>
+                    <h2 onclick='$(".metrics__content").toggle();' class='toggladebl'>
 						Quotes: <span class='etc_price_usd'>??</span>$, 
 					<span class='etc_price_btc'>??</span> BTC <span class='etc_percent_change_24h'></span>
 						
-					<img style='filter: invert(100%);' id='tohide' src='http://www.icon2s.com/img64/64x64-expand-arrow22.png'>
+					<img class='tohide' style='filter: invert(100%);' src='http://www.icon2s.com/img64/64x64-expand-arrow22.png'>
 					</h2>
                     <div class="metrics__content" style='padding-bottom: 60px;display:none'>
                         <div class="metrics__top-list clearfix">
@@ -190,37 +190,7 @@
                                         <div class="chart2"></div>
                                     </div>
                                 </div>
-                            </div><!-- 
-                            <div role="tabpanel" class="tab-pane" id="btc-panel">
-                                <div class="metrics__list clearfix">
-                                    <p class="green cell-1">etc/usd</p>
-                                    <p class="cell-2" id='etcmarket_cap_usd'>$141 004 111</p>
-                                    <p class="cell-3">$1.555555</p>
-                                    <p class="cell-4">$1.66666</p>
-                                    <p class="cell-5">33333333</p>
-                                    <p class="cell-6">$40 844 900</p>
-                                    <p class="cell-7">11.54%</p>
-                                </div>
-                                <div class="metrics__list clearfix">
-                                    <p class="grey cell-1">eth/usd</p>
-                                    <p class="cell-2">$1 111 111 628</p>
-                                    <p class="cell-3">$12.69277501</p>
-                                    <p class="cell-4">$12.7865</p>
-                                    <p class="cell-5">82 459 874</p>
-                                    <p class="cell-6">$17 293 800</p>
-                                    <p class="grey cell-7">0.10%</p>
-                                </div>
-                                <div class="metrics__graph-block">
-                                    <div class="metrics__legend clearfix">
-                                        <p><span class="metrics-price-icon"></span> market price</p>
-                                        <p><span class="metrics-volume-icon"></span> trade volume</p>
-                                    </div>
-                                    <div class="metrics__graph">
-                                        <div class="chart2"></div>
-                                    </div>
-                                </div>
                             </div>
-							-->
                         </div>
                     </div>
                 </div>
@@ -233,11 +203,13 @@
         <div class="container-fluid">
             <div class="section__content">
                 <div class="incontainer">
-                    <h2>What is Ethereum <span>Classic</span>?</h2>
+                    <h2 onclick='$(".about__content").toggle();' class='toggladebl'>What is Ethereum <span>Classic</span>?
+					<img class='tohide' src='http://www.icon2s.com/img64/64x64-expand-arrow22.png'>
+					</h2>
                 </div>
             </div>
 
-            <div class="about__content">
+            <div class="about__content" style='display:none;'>
                 <div class="row">
                     <div class="col-sm-4 col-lg-2 about__block">
                         <p class="data about__icon1">January 3, 2009</p>
@@ -2338,6 +2310,33 @@ particlesJS.load('particles-js2', 'js/particles.json', function() {
         });
 
     });
+	
+	
+	$('.toggladebl').click(function() {
+
+		if ($(this).attr("data-opened") == 'open') {
+			var csstmp = 'rotate(0deg)';
+			$(this).removeAttr("data-opened");
+			}else{
+			var csstmp = 'rotate(-180deg)';
+			$(this).attr("data-opened","open");
+		}
+		
+		$(this).find("img").css('-webkit-transform', csstmp);
+		$(this).find("img").css('-moz-transform', csstmp);
+		$(this).find("img").css('transform', csstmp);
+		
+		  
+	});
     </script>
+	<style>
+	.toggladebl {
+		cursor:pointer;
+	}
+	.tohide {
+		
+		display: inline-block;
+	}
+	</style>
 </body>
 </html>
