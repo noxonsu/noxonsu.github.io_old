@@ -1890,7 +1890,7 @@ position: relative;
     padding: 0 20px; }
 
   .roadmap__block {
-    padding-right: 600px; }
+    padding-right: 600px;    height: 650px; }
 
   .roadmap__img {
     width: 600px;
@@ -4344,4 +4344,23 @@ form#donateform textarea {
   .support__right span {
     word-wrap: break-word;
   }
+}
+
+.roadmap__block {
+      height: auto !important;
+    padding-bottom: 80px !important;
+}
+
+@media (max-width: 991px) {
+  .roadmap__img {
+    bottom: -120px;
+    right: -90px;
+    top: auto;
+  }
+}
+
+
+.breeze_quotes {
+  font-size: 22px;
+  color:#000;
 }
