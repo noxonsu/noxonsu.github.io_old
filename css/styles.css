@@ -777,7 +777,6 @@ footer {
 .replay-block {
   float: left;
   width: 100%;
-  max-width: 325px;
   }
 
 .features {
@@ -3581,7 +3580,7 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1335px;
     padding: 0;
 }
 
@@ -3609,10 +3608,11 @@ h2 {
 
 
 #rec9564805 .t-col {
-    display: inline;
-    float: left;
     width: 33%;
     padding: 0px 25px;
+    vertical-align: top;
+    float: none;
+    display: inline-block;
 }
 
 #rec9564805 .t417__wrapper {
@@ -3700,6 +3700,7 @@ h2 {
 #news .t-heading {
     font-weight: 600;
     color: #000000;
+    text-transform: uppercase;
 }
 
 #news .t-descr_xs {
@@ -4364,4 +4365,26 @@ form#donateform textarea {
 .breeze_quotes {
   font-size: 22px;
   color:#000;
+}
+
+.replay-block button {
+    width: 100%;
+  max-width: none;
+  text-align: center;
+}
+
+.replay-icon {
+  position: initial;
+  top: 0;
+  left: 0;
+  float: left;
+  margin-right: 30px;
+  margin-top: 4px;
+}
+
+.replay p { margin-top: 0px; margin-bottom: 25px; }
+
+
+#rec9564805 .t-col.t-col_4 {
+  max-width: none;
 }
