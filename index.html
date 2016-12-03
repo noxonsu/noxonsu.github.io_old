@@ -23,15 +23,14 @@
     <div class="lnd-navbar">
         <div class="lnd-header"><img src="http://ethclassic.tech/img/logo_icon_small.png" alt=""></div>
         <ul class="lnd-menu">
+            <li><a href="JavaScript://" onclick="donate()">Donate</a></li>
             <li><a href="//blog.ethereumclassic.com">Blog</a></li>
-            <li><a href="#">Marketplace</a></li>
             <li><a href="#">Crowdfunding</a></li>
-            <li><a href="#">Community</a></li>
-            <li><a href="#">Metrics</a></li>
-            <li><a href="#">Developers</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Projects</a></li>
             <li><h6><a href="http://changelog.ethereumclassic.com/"></a><h6></li>
             <li class="dropdown">
-                <a href="#">Navigation</a>
+                <a href="#">Community</a>
                 <ul>
                     <li><a href="http://community.ethereumclassic.com/index.php?p=/activity">Activity</a></li>
                     <li><a href="http://community.ethereumclassic.com/messages/all">Conversations</a></li>
@@ -2206,6 +2205,35 @@ particlesJS.load('particles-js2', 'js/particles.json', function() {
             </div><!-- /.container-fluid -->
         </footer>
     </section><!--pagefooter--> <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+
+<div id="donate">
+    <div class="dnt-fader">
+        <div class="dnt-body">
+        <h3>Donate</h3>
+            <div class="col-1-2">
+                <p>You can donate to speed up development of our site which will help bring ETC community together. We have lots of plans and ideas how to create website which will help us and ETC to develop rapidly. United we are strong</p>
+
+                <p>ETC <span>0xc5C1063F6cB0BBe5165903Bc4BeaCBf820C7F957</span> <button data-clipboard-text="0xc5C1063F6cB0BBe5165903Bc4BeaCBf820C7F957" type="button" class="btn get-goods">copy</button></p>
+                <p>ETH <span>0x8f361f91b06b80ee18d0641d607a18ddac689bd0</span> <button data-clipboard-text="0x8f361f91b06b80ee18d0641d607a18ddac689bd0" type="button" class="btn get-goods">copy</button></p>
+                <p>BTC <span>16wPejzMfbTARNJBoYcTFwHqUKVVKXYSYS</span> <button data-clipboard-text="16wPejzMfbTARNJBoYcTFwHqUKVVKXYSYS" type="button" class="btn get-goods">copy</button></p>
+            </div>
+            <div class="col-1-2">
+                <div class="close-btn">x</div>
+                <form id="donateform" action="https://ethereumclassic.com/donate/donate.php" method="POST" onsubmit="call(); return false;">
+                    <input name="BTC" type="text" placeholder="BTC">
+                    <input name="ETH" type="text" placeholder="ETH">
+                    <input name="ETC" type="text" placeholder="ETC">
+                    <textarea name="TEXT" placeholder="Text"></textarea>
+                    <input name="Send" type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -2214,7 +2242,16 @@ particlesJS.load('particles-js2', 'js/particles.json', function() {
     <script src="js/etcchart.js"></script>
     <script src="js/miners.js"></script>
 	<script>
-	
+    function donate() {
+            $('#donate').fadeIn('fast');
+            $('body').css('overflow','hidden');
+        }
+	   
+    $(document).ready(function(){
+    
+
+        $('#donate .close-btn').click(function(){ $('#donate').fadeOut('fast'); $('body').css('overflow','visible'); });
+    });
 	
 	$.getJSON('https://api.gastracker.io/status',function(d){
 		console.log(d);
