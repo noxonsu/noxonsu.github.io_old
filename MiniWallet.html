@@ -30,20 +30,23 @@
         <div class="container-fluid">
             <div class="section__content">
                 <div class="incontainer">
-                    <h2>ETC lightwallet.js client</h2>
+                    <h3>ETC lightwallet.js client</h3>
 					<form action=''>
 					Your open key: <span id='openkey'></span><br>
-					Your privatekey: <span id='privkey'></span> <a href='#'>lock</a><br>
+					Your privatekey: <span id='privkey'></span> <br>
 					Your balance: <span id='balance'></span><br>
 					<br>
 					
-					<div id='console'></div>
-
 					
-					DATA:<Br>
+					to: <br>
+					<input type='text' id='to' name='' class='form-control' value='0x'>
+					Amount: <br>
+					<input type='number' id='amount' name='' class='form-control' value='0'>
+					DATA (optional):<Br>
 				
-						<textarea name='raw' placeholder='0x....' style='width:100%;height:200px'></textarea>
-						<input type='button' onclick='sendRwTr()' name='' class='form-control' value='Send'>
+						<textarea name='raw' id='data' placeholder='0x....' style='width:100%;height:200px'></textarea>
+						<input type='button' onclick='sendRwTr()' name='' class='btn btn-primary' value='Send via gastracker.io'>
+						<br><br><div id='console'></div>
 					</form>
 					
 					<script>
@@ -65,18 +68,32 @@
 							console.log("get nonce "+d.result);
 							var options = {};
 							options.nonce = d.result;
-							options.to = '';
+							options.to = $("#to").val();
 							// call function game() in contract
+							
 							options.data = $("#data").val(); 
 							console.log("options.data",options.data);
 							options.gasPrice="0x737be7600";//web3.toHex('31000000000');
 							options.gasLimit=0x927c0; //web3.toHex('600000');
-							options.value = 0;
+							options.value = $("#amount").val()*1000000000000000000;
 							
 							var tx = new EthJS.Tx(options);
-							var signedTx = tx.sign(EthJS.Buffer.Buffer(privkey));
-					
-							console.log('signedTx:',signedTx);
+							tx.sign(EthJS.Buffer.Buffer(privkey,'hex'));
+							var serializedTx = tx.serialize().toString('hex');
+							$.ajax({
+								method: "POST",
+								url: urlApi,
+								data: JSON.stringify({"jsonrpc":"2.0",
+											"method":"eth_sendRawTransaction",
+											"params":["0x"+serializedTx],
+											"id":1}),
+								success: function (d) {
+									console.log("Транзакция отправлена в сеть:", d);
+									$("#console").html("http://gastracker.io/tx/"+d.result);
+									if (typeof d.error.message != undefined)$("#console").html(d.error.message);
+									
+								}});
+							
 						}});
 						
 					}
@@ -134,7 +151,9 @@
 					
 					</script>
 					<Br><br>
-					js <3
+					<a href='#' onclick='$("#iframe").toggle();$("#iframe").val($("#iframe").val().replace("{link}",window.location));return false'>For webmasters</a><br>
+					<textarea id='iframe' style='width:100%;height:60px;display:none'><!-- insert this code to your site for enable ETC wallet feature -->
+<iframe src='{link}' border=0 style='width:100%;height:500px'></iframe></textarea>
                 </div>
             </div>
 
