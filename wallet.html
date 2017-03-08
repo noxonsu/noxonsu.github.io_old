@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ETC wallet</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--For improved cross-browser rendering-->
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <!--Plugins-->
+
+    <!-- Custom styles CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://rawgit.com/ConsenSys/eth-lightwallet/master/dist/lightwallet.js"></script>
+	<script src="https://rawgit.com/ethereumjs/browser-builds/master/dist/ethereumjs-tx.js"></script>
+    
+	
+</head>
+<body style='display:none'>
+
+<section class="support">
+        <div class="container-fluid">
+            <div class="section__content">
+                <div class="incontainer">
+                    <h2>etc lightwallet.js client</h2>
+					<form action=''>
+					Your open key: <span id='openkey'></span><br>
+					Your privatekey: <span id='privkey'></span> <a href='#'>lock</a><br>
+					Your balance: <span id='balance'></span><br>
+					<br>
+					
+					<div id='console'></div>
+
+					
+					DATA:<Br>
+				
+						<textarea name='raw' placeholder='0x....' style='width:100%;height:200px'></textarea>
+						<input type='button' onclick='sendRwTr()' name='' class='form-control' value='Send'>
+					</form>
+					
+					<script>
+					urlApi = "http://api.gastracker.io/web3";
+					
+					function sendRwTr(data) {
+					
+					$.ajax({
+					type: "POST",
+						url: urlApi,
+						dataType: 'json',
+						async: false,
+						data: JSON.stringify({"jsonrpc":"2.0",
+											"method":"eth_getTransactionCount",
+											"params":[openkey,"latest"],
+											"id":1}),
+						success: function (d) {
+			
+							console.log("get nonce "+d.result);
+							var options = {};
+							options.nonce = d.result;
+							options.to = '';
+							// call function game() in contract
+							options.data = $("#data").val(); 
+							console.log("options.data",options.data);
+							options.gasPrice="0x737be7600";//web3.toHex('31000000000');
+							options.gasLimit=0x927c0; //web3.toHex('600000');
+							options.value = 0;
+							
+							var tx = new EthJS.Tx(options);
+							var signedTx = tx.sign(EthJS.Buffer.Buffer(privkey));
+					
+							console.log('signedTx',signedTx);
+						}});
+						
+					}
+					
+					
+					
+					function wallet_open(secretSeed) { //box aerobic sweet proof warfare alone atom snake amateur spy couple side
+						lightwallet.keystore.deriveKeyFromPassword('', function (err, pwDerivedKey) {
+							var ks = new lightwallet.keystore(secretSeed, pwDerivedKey);
+							ks.generateNewAddress(pwDerivedKey, 1);
+							var address = ks.getAddresses()[0];
+							var prv_key = ks.exportPrivateKey(address, pwDerivedKey);
+							
+							localStorage.setItem("openkey","0x"+address);
+							localStorage.setItem("privkey",prv_key);
+							localStorage.setItem("isreg",1);
+							localStorage.setItem("network","etcmainnet");
+							console.log('address and key: ', address, prv_key);
+							$("#openkey").html("0x"+address);
+							$("#privkey").html(prv_key);
+							privkey = prv_key;
+						});
+					}
+					
+					if (!localStorage.getItem("openkey")) {
+						var secretSeed = lightwallet.keystore.generateRandomSeed();
+						wallet_open(secretSeed);
+						$("#console").html("We just generated new keys for you and save it to your browser");
+					}
+					
+					openkey = localStorage.getItem("openkey");
+					$("#openkey").html(openkey);
+					$("#privkey").html(localStorage.getItem("privkey"));
+					privkey = localStorage.getItem("privkey");
+					 $.ajax({
+						type: "POST", 
+						url: urlApi, 
+						dataType: 'json', 
+						async: false, 
+						data: JSON.stringify({
+							 "id": 0
+							 , "jsonrpc": '2.0'
+							 , "method": 'eth_getBalance'
+							 , "params": [openkey, "latest"]}),
+							 
+							 success: function (d) {
+								
+								console.log("balance check ",d,parseInt(d.result,16));
+								_balance = parseInt(d.result,16) / 1000000000000000000;
+								 $("#balance").html(_balance+" ETC");
+					          }
+					      });
+					
+					
+					
+					</script>
+					<Br><br>
+					js <3
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </section><!--support-->
+
+	
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
+
+	
+
+
+<script>
+
+$("body").show();
+</script>
+
+</body>
+</html>
