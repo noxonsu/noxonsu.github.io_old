@@ -30,7 +30,7 @@
         <div class="container-fluid">
             <div class="section__content">
                 <div class="incontainer">
-                    <h2>etc lightwallet.js client</h2>
+                    <h2>ETC lightwallet.js client</h2>
 					<form action=''>
 					Your open key: <span id='openkey'></span><br>
 					Your privatekey: <span id='privkey'></span> <a href='#'>lock</a><br>
@@ -76,7 +76,7 @@
 							var tx = new EthJS.Tx(options);
 							var signedTx = tx.sign(EthJS.Buffer.Buffer(privkey));
 					
-							console.log('signedTx',signedTx);
+							console.log('signedTx:',signedTx);
 						}});
 						
 					}
